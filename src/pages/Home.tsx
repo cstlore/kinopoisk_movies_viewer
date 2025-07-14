@@ -1,11 +1,53 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState, RefObject} from "react";
 import {Movie} from "../api/Movie";
 import {sendRequest} from "../api/Api";
 import MovieCard from "../components/MovieCard";
 import FilterPanel from "../components/FilterPanel";
 import {Filters} from "../api/Filters";
 
+interface UseOnScreenOptions {
+    root?: Element | null;
+    rootMargin?: string;
+    threshold?: number | number[];
+}
+
+
+function useOnScreen<T extends Element>(
+    options: UseOnScreenOptions
+): [RefObject<T | null>, boolean] {
+    const ref = useRef<T>(null);
+    const [isIntersecting, setIntersecting] = useState(false);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIntersecting(entry.isIntersecting),
+            options
+        );
+        const el = ref.current;
+        if (el) observer.observe(el);
+        return () => {
+            if (el) observer.unobserve(el);
+            observer.disconnect();
+        };
+    }, [ref, options]);
+    return [ref, isIntersecting];
+}
+
 const Home: React.FC = () => {
+    const [ref, isVisible] = useOnScreen<HTMLParagraphElement>({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+    });
+    useEffect(() => {
+        if (isVisible) {
+            let copiedParams = movieParams
+            copiedParams.page = page
+            sendRequest(copiedParams).then((res: Movie[]) => {
+                setMovies([...movies, ...res])
+            })
+            setPage(prev => prev + 1)
+        }
+    }, [isVisible]);
     const [movieParams, setMovieParams] = useState<Filters>({
         page: 1,
         limit: 50,
@@ -18,9 +60,10 @@ const Home: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([])
     const [page, setPage] = useState(1)
     useEffect(() => {
-        console.log(movieParams)
+        let copiedParams = movieParams
+        copiedParams.page = 1
         setPage(2)
-        sendRequest(movieParams).then((res: Movie[]) => {
+        sendRequest(copiedParams).then((res: Movie[]) => {
             setMovies(res)
         })
     }, [movieParams]);
@@ -33,7 +76,8 @@ const Home: React.FC = () => {
                     <MovieCard key={movie.id} movie={movie}/>
                 ))}
             </div>
-            <p className="text-center text-[24px] mt-4 mb-4">Все фильмы по данным фильтрам просмотрены / Загрузка...</p>
+            <p className="text-center text-[24px] mt-4 mb-4" ref={ref}>Все фильмы по данным фильтрам просмотрены /
+                Загрузка...</p>
         </div>
     )
 }
