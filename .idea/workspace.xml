@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0408fb0-5b22-41d2-9518-2a85f4a7cab6" name="Changes" comment="load">
+      <change afterPath="$PROJECT_DIR$/src/contexts/LikesContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Movie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Movie.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MovieCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Favorite.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Favorite.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MovieDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MovieDetail.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,18 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "cstlore"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cstlore&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/cstlore/kinopoisk_movies_viewer.git",
-    "accountId": "0deb0971-0ae4-4234-897a-5f1671e994ea"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/cstlore/kinopoisk_movies_viewer.git&quot;,
+    &quot;accountId&quot;: &quot;0deb0971-0ae4-4234-897a-5f1671e994ea&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -41,6 +47,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -79,6 +86,7 @@
       <workItem from="1752508453870" duration="167000" />
       <workItem from="1752508645893" duration="4037000" />
       <workItem from="1752512731584" duration="14851000" />
+      <workItem from="1752591078817" duration="3156000" />
     </task>
     <task id="LOCAL-00001" summary="load">
       <option name="closed" value="true" />

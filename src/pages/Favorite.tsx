@@ -2,21 +2,23 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {getMovieDetail} from "../api/Api"
 import {Movie} from "../api/Movie";
+import {useLikeContext} from "../contexts/LikesContext";
+import MovieCard from "../components/MovieCard";
 
 const Favorite: React.FC = () => {
-    const [movies, setMovies] = useState<Movie[]>([]);
+    const {favoriteFilms, setFavoriteFilms} = useLikeContext()
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const favIds = JSON.parse(localStorage.getItem('favorites') || '[]') as number[];
+        const favIds = JSON.parse(localStorage.getItem('favorite') || '[]') as number[];
         if (favIds.length === 0) {
             setLoading(false);
             return;
         }
         Promise.all(favIds.map(id => getMovieDetail(String(id))))
             .then(results => {
-                setMovies(results);
+                setFavoriteFilms(results);
             })
             .catch(err => {
                 console.error(err);
@@ -29,25 +31,17 @@ const Favorite: React.FC = () => {
 
     if (loading) return <p>Загрузка избранного...</p>;
     if (error) return <p>{error}</p>;
-    if (movies.length === 0) return <p>У вас пока нет избранных фильмов.</p>;
+    if (favoriteFilms.length === 0) return <p>У вас пока нет избранных фильмов.</p>;
 
     return (
         <div style={{padding: 20}}>
             <h1>Избранное</h1>
-            <ul>
-                {movies.map(movie => (
-                    <li key={movie.id} style={{marginBottom: 10}}>
-                        <Link to={`/movie/${movie.id}`}>
-                            <img
-                                src={movie.posterUrl}
-                                alt={movie.title}
-                                style={{width: 50, marginRight: 10, verticalAlign: 'middle'}}
-                            />
-                            {movie.title} ({movie.year})
-                        </Link>
-                    </li>
+            <div
+                className="mt-[24px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pl-[26px] pr-[26px]">
+                {favoriteFilms.map(movie => (
+                    <MovieCard key={movie.id} movie={movie}/>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };

@@ -45,6 +45,7 @@ export const getMovieDetail = async (
         title: data.name ?? data.alternativeName ?? "—",
         year: data.year,
         rating: data.rating?.kp,
-        posterUrl: data.poster?.url
+        posterUrl: data.poster?.url,
+        genres: data.genres
     }
 }
