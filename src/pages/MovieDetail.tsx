@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import {Movie} from "../api/Movie";
 import undefinedPoster from "../images/undefinedPoster.png";
 import {useLikeContext} from "../contexts/LikesContext";
+import {Modal} from "../components/Modal";
 
 
 const MovieDetail: React.FC = () => {
@@ -23,6 +24,7 @@ const MovieDetail: React.FC = () => {
     }, []);
     return (
         <div className="w-[100%] flex flex-col items-center justify-center">
+            <Modal movie={movie}/>
             <div className="relative">
                 <img className="h-[60vh] mt-[20px]" src={movie.posterUrl ?? undefinedPoster} alt={movie.title}/>
                 <div
@@ -45,13 +47,7 @@ const MovieDetail: React.FC = () => {
                         <svg
                             className={`liked_like absolute top-0 left-0 ${favoriteFilms.map(film => film.id).includes(movie.id) ? '' : 'hover:opacity-[1] opacity-[0]'} transition ease-in-out duration-300`}
                             onClick={() => {
-                                if (!favoriteFilms.map(film => film.id).includes(movie.id)) {
-                                    localStorage.setItem("favorite", JSON.stringify([...favoriteFilms.map(val => val.id), movie.id]))
-                                    setFavoriteFilms([...favoriteFilms, movie])
-                                } else {
-                                    localStorage.setItem("favorite", JSON.stringify(favoriteFilms.filter((val) => val.id !== movie.id).map(val => val.id)))
-                                    setFavoriteFilms(favoriteFilms.filter((val) => val.id !== movie.id))
-                                }
+                                (document.querySelector('#modal') as HTMLElement)!.style.visibility = 'visible'
                             }} width="48" height="48" viewBox="0 0 48 48"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1_2180)">

@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0408fb0-5b22-41d2-9518-2a85f4a7cab6" name="Changes" comment="load">
-      <change afterPath="$PROJECT_DIR$/src/contexts/LikesContext.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Movie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Movie.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MovieCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Favorite.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Favorite.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/MovieDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MovieDetail.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +81,7 @@
       <workItem from="1752508453870" duration="167000" />
       <workItem from="1752508645893" duration="4037000" />
       <workItem from="1752512731584" duration="14851000" />
-      <workItem from="1752591078817" duration="3156000" />
+      <workItem from="1752591078817" duration="4092000" />
     </task>
     <task id="LOCAL-00001" summary="load">
       <option name="closed" value="true" />
@@ -128,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752527885423</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="load">
+      <option name="closed" value="true" />
+      <created>1752594283209</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1752594283209</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
